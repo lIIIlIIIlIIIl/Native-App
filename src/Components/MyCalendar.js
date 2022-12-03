@@ -1,7 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useReducer} from 'react';
-import {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import calendarReducer from '../Reducer/CalendarReducer';
+import CalendarDays from './CalendarDays';
 import CalendarHeader from './CalendarHeader';
 
 const today = new Date();
@@ -48,6 +49,7 @@ const MyCalendar = () => {
         onIncrease={onIncrease}
         onDecrease={onDecrease}
       />
+      <CalendarDays />
     </View>
   );
 };
