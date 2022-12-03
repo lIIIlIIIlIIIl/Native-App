@@ -15,9 +15,9 @@ const CalendarDays = () => {
   return (
     <View style={styles.DaysContainer}>
       {days.map((el, idx) => (
-        <Text key={idx} style={{color: `${el.color}`}}>
-          {el.day}
-        </Text>
+        <View key={idx} style={styles.DayBox}>
+          <Text style={{color: `${el.color}`}}>{el.day}</Text>
+        </View>
       ))}
     </View>
   );
@@ -30,6 +30,12 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  DayBox: {
+    height: 40,
+    width: '10%',
+    justifyContent: 'center',
     alignItems: 'center',
   },
 });
