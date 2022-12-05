@@ -7,11 +7,12 @@ import CalendarDates from './CalendarDates';
 import CalendarDays from './CalendarDays';
 import CalendarHeader from './CalendarHeader';
 
-const today = new Date();
+const day = new Date();
 
 const initialState = {
-  year: today.getFullYear(),
-  month: today.getMonth(),
+  day: day.getDate(),
+  year: day.getFullYear(),
+  month: day.getMonth(),
   monthNames: [
     'January',
     'February',
@@ -31,6 +32,7 @@ const initialState = {
 const MyCalendar = () => {
   const [state, dispatch] = useReducer(calendarReducer, initialState);
 
+  const today = state.day;
   const year = state.year;
   const month = state.month;
   const monthName = state.monthNames[month];
@@ -40,6 +42,7 @@ const MyCalendar = () => {
 
   console.log(lastDate, firstDay);
   console.log(monthName, month);
+  console.log(today);
 
   const onIncrease = () => {
     dispatch({type: 'INCREMENT'});
@@ -56,10 +59,13 @@ const MyCalendar = () => {
       />
       <CalendarDays />
       <CalendarDates
+        today={today}
         year={year}
         month={month}
         firstDay={firstDay}
         lastDate={lastDate}
+        onIncrease={onIncrease}
+        onDecrease={onDecrease}
       />
     </View>
   );

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   DayBox: {
     height: 40,
-    width: '10%',
+    width: '12%',
     justifyContent: 'center',
     alignItems: 'center',
   },
