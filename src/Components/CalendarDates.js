@@ -95,14 +95,18 @@ const CalendarDates = ({
                 key={date.date}
                 style={styles.ClickDateBox}
                 onPress={() => onTouchHandler(date)}>
-                <Text style={{color: date.color}}>{date.date} </Text>
+                <Text style={({color: date.color}, {textAlign: 'center'})}>
+                  {date.date}{' '}
+                </Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
                 key={date.date}
                 style={styles.DateBox}
                 onPress={() => onTouchHandler(date)}>
-                <Text style={{color: date.color}}>{date.date} </Text>
+                <Text style={({color: date.color}, {textAlign: 'center'})}>
+                  {date.date}{' '}
+                </Text>
               </TouchableOpacity>
             ),
           )}
