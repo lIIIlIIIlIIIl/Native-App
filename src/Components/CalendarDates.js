@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
@@ -95,7 +96,7 @@ const CalendarDates = ({
                 key={date.date}
                 style={styles.ClickDateBox}
                 onPress={() => onTouchHandler(date)}>
-                <Text style={({color: date.color}, {textAlign: 'center'})}>
+                <Text style={{color: date.color, textAlign: 'center'}}>
                   {date.date}{' '}
                 </Text>
               </TouchableOpacity>
@@ -104,7 +105,7 @@ const CalendarDates = ({
                 key={date.date}
                 style={styles.DateBox}
                 onPress={() => onTouchHandler(date)}>
-                <Text style={({color: date.color}, {textAlign: 'center'})}>
+                <Text style={{color: date.color, textAlign: 'center'}}>
                   {date.date}{' '}
                 </Text>
               </TouchableOpacity>
@@ -135,8 +136,8 @@ const styles = StyleSheet.create({
     width: '12%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#0C1D7E',
+    borderColor: '#54C4FF',
     borderRadius: 50,
-    borderWidth: 1,
+    borderWidth: 2,
   },
 });
