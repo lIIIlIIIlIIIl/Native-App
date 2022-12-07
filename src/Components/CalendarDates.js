@@ -11,7 +11,7 @@ const CalendarDates = ({
   onIncrease,
   onDecrease,
 }) => {
-  const [clickDate, setClickDate] = useState(today);
+  const [clickDate, setClickDate] = useState({day: today, month: month + 1});
 
   const CalendarDate = [];
 
@@ -28,7 +28,7 @@ const CalendarDates = ({
           dates.push({
             date: now,
             color: '#BDBDBD',
-            month: 'last',
+            month: month,
             thisMonth: false,
           });
         } else {
@@ -36,7 +36,7 @@ const CalendarDates = ({
           dates.push({
             date: now,
             color: '#000000',
-            month: 'this',
+            month: month + 1,
             thisMonth: true,
           });
         }
@@ -49,7 +49,7 @@ const CalendarDates = ({
           dates.push({
             date: now,
             color: '#000000',
-            month: 'this',
+            month: month + 1,
             thisMonth: true,
           });
         } else {
@@ -57,7 +57,7 @@ const CalendarDates = ({
           dates.push({
             date: now,
             color: '#BDBDBD',
-            month: 'next',
+            month: month + 2,
             thisMonth: false,
           });
         }
@@ -71,27 +71,25 @@ const CalendarDates = ({
   }
 
   const onTouchHandler = date => {
-    console.log(date.date);
-    if (date.month === 'this') {
-      setClickDate(date.date);
+    if (date.month === month + 1) {
+      setClickDate({day: date.date, month: date.month});
     }
-    if (date.month === 'last') {
+    if (date.month === month) {
       onDecrease();
-      setClickDate(date.date);
+      setClickDate({day: date.date, month: date.month});
     }
-    if (date.month === 'next') {
+    if (date.month === month + 2) {
       onIncrease();
-      setClickDate(date.date);
+      setClickDate({day: date.date, month: date.month});
     }
   };
-  console.log(clickDate);
 
   return (
     <View>
       {CalendarDate.map((el, idx) => (
         <View key={idx} style={styles.WeekContainer}>
           {el.map(date =>
-            clickDate === date.date && date.thisMonth ? (
+            clickDate.day === date.date && clickDate.month === date.month ? (
               <TouchableOpacity
                 key={date.date}
                 style={styles.ClickDateBox}
