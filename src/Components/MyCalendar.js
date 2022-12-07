@@ -40,10 +40,6 @@ const MyCalendar = () => {
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
 
-  console.log(lastDate, firstDay);
-  console.log(monthName, month);
-  console.log(today);
-
   const onIncrease = () => {
     dispatch({type: 'INCREMENT'});
   };
